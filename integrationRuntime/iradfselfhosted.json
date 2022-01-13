@@ -1,0 +1,6 @@
+{
+	"name": "iradfselfhosted",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

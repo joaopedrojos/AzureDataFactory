@@ -1,0 +1,9 @@
+{
+	"name": "adf-udemy-course-jp",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d9faef08-90c0-495c-99d4-42fba251702f",
+		"tenantId": "96b069b9-7a6b-4318-8b36-e771f4fad846"
+	}
+}

@@ -92,6 +92,28 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/tr_tumbling_window')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Minute",
+					"interval": 15,
+					"startTime": "2022-01-13T23:59:00Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 50,
+					"retryPolicy": {
+						"intervalInSeconds": 30
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_parameters')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1788,175 +1810,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_dinamico_azure_sql_database')]",
 				"[concat(variables('factoryId'), '/datasets/ds_dinamico_parquet')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_lookup')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "lookup_csv",
-						"description": "Singleton mode – Retorna a primeira linha do dataset utilizado.\n\nHabilitado first raw only.",
-						"type": "Lookup",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"dataset": {
-								"referenceName": "ds_dinamico_csv",
-								"type": "DatasetReference",
-								"parameters": {
-									"containerName": "csvfiles",
-									"fileName": "csvCor.csv",
-									"separatorName": ";"
-								}
-							},
-							"firstRowOnly": true
-						}
-					},
-					{
-						"name": "lookup_sql",
-						"type": "Lookup",
-						"dependsOn": [
-							{
-								"activity": "lookup_csv",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"dataset": {
-								"referenceName": "ds_dinamico_azure_sql_database",
-								"type": "DatasetReference",
-								"parameters": {
-									"schemaName": "salesLT ",
-									"tableName": "ProductCategory"
-								}
-							},
-							"firstRowOnly": true
-						}
-					},
-					{
-						"name": "lookup_consulta",
-						"type": "Lookup",
-						"dependsOn": [
-							{
-								"activity": "lookup_sql",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"sqlReaderQuery": "SELECT TOP (1000) [ProductCategoryID]\n      ,[ParentProductCategoryID]\n      ,[Name]\n      ,[rowguid]\n      ,[ModifiedDate]\n  FROM [SalesLT].[ProductCategory]",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"dataset": {
-								"referenceName": "ds_dinamico_azure_sql_database",
-								"type": "DatasetReference",
-								"parameters": {
-									"schemaName": "SalesLT",
-									"tableName": "ProductCategory"
-								}
-							},
-							"firstRowOnly": false
-						}
-					},
-					{
-						"name": "lookup_procedure",
-						"type": "Lookup",
-						"dependsOn": [
-							{
-								"activity": "lookup_consulta",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"sqlReaderStoredProcedureName": "[[dbo].[procedure_lookup_adf]",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"dataset": {
-								"referenceName": "ds_dinamico_azure_sql_database",
-								"type": "DatasetReference",
-								"parameters": {
-									"schemaName": "SalesLT",
-									"tableName": "ProductCategory"
-								}
-							},
-							"firstRowOnly": false
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"folder": {
-					"name": "00 - Ativities"
-				},
-				"annotations": [],
-				"lastPublishTime": "2022-01-12T19:11:04Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_dinamico_csv')]",
-				"[concat(variables('factoryId'), '/datasets/ds_dinamico_azure_sql_database')]"
 			]
 		}
 	]

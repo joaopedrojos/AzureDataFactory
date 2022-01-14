@@ -19,6 +19,10 @@
 			"type": "string",
 			"defaultValue": "https://dlsudemycoursejp.dfs.core.windows.net"
 		},
+		"tr_storage_events_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/37ae707c-f325-4239-8700-d9c931a4459f/resourceGroups/rg-udemy-course/providers/Microsoft.Storage/storageAccounts/dlsudemycoursejp"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -72,6 +76,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"tr_storage_events_properties_typeProperties_scope": {
+						"value": "[parameters('tr_storage_events_properties_typeProperties_scope')]"
 					}
 				}
 			},

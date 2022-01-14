@@ -466,7 +466,7 @@
 			"properties": {
 				"description": "evento que ocorre no datalake",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {

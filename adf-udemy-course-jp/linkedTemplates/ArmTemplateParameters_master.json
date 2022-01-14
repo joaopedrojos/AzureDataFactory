@@ -5,11 +5,8 @@
 		"factoryName": {
 			"value": "adf-udemy-course-jp"
 		},
-		"ls_azure_sql_database_connectionString": {
-			"value": ""
-		},
-		"ls_datalakeg2_accountKey": {
-			"value": ""
+		"ls_azure_sql_database_properties_typeProperties_connectionString_secretName": {
+			"value": "azuresqldatabasesecretkey"
 		},
 		"ls_datalakeg2_properties_typeProperties_url": {
 			"value": "https://dlsudemycoursejp.dfs.core.windows.net"
@@ -17,7 +14,7 @@
 		"tr_storage_events_properties_typeProperties_scope": {
 			"value": "/subscriptions/37ae707c-f325-4239-8700-d9c931a4459f/resourceGroups/rg-udemy-course/providers/Microsoft.Storage/storageAccounts/dlsudemycoursejp"
 		},
-		"ls_key_vault_properties_typeProperties_baseUrl": {
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://keyvaultadfcourse.vault.azure.net/"
 		},
 		"containerUri": {

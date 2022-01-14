@@ -17,6 +17,9 @@
 		"tr_storage_events_properties_typeProperties_scope": {
 			"value": "/subscriptions/37ae707c-f325-4239-8700-d9c931a4459f/resourceGroups/rg-udemy-course/providers/Microsoft.Storage/storageAccounts/dlsudemycoursejp"
 		},
+		"ls_key_vault_properties_typeProperties_baseUrl": {
+			"value": "https://keyvaultadfcourse.vault.azure.net/"
+		},
 		"containerUri": {
 			"value": ""
 		},

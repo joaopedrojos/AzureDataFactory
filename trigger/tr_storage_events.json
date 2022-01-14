@@ -1,0 +1,20 @@
+{
+	"name": "tr_storage_events",
+	"properties": {
+		"description": "evento que ocorre no datalake",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/triggersfiles/blobs/cidadesTrigger",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/37ae707c-f325-4239-8700-d9c931a4459f/resourceGroups/rg-udemy-course/providers/Microsoft.Storage/storageAccounts/dlsudemycoursejp",
+			"events": [
+				"Microsoft.Storage.BlobDeleted",
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

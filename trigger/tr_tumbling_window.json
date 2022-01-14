@@ -3,12 +3,6 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "pipe_getmetadata",
-				"type": "PipelineReference"
-			}
-		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",

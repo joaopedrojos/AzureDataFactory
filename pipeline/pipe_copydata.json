@@ -134,7 +134,7 @@
 					"parameters": {
 						"activityName": "Teste",
 						"activityDuration": {
-							"value": "@activity('excel_to_csv').output.duration",
+							"value": "@activity('excel_to_csv').output.executionDetails.status",
 							"type": "Expression"
 						},
 						"activityStatus": {

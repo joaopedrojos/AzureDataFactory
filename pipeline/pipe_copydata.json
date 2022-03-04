@@ -180,6 +180,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"RunId": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "00 - Ativities"
 		},

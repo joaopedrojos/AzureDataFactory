@@ -57,7 +57,7 @@
 			},
 			"dataFactoryResourceGroup": {
 				"type": "string",
-				"defaultValue": "rg-udemy-course"
+				"defaultValue": "adf-udemy-course-jp"
 			},
 			"pipelineRunId": {
 				"type": "string"

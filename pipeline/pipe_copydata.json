@@ -95,7 +95,7 @@
 						"referenceName": "ds_dinamico_excel",
 						"type": "DatasetReference",
 						"parameters": {
-							"conteinetName": "excelfiles",
+							"conteinetName": "excelfil",
 							"fileName": "plan_cor.xlsx",
 							"sheetName": "Plan1"
 						}

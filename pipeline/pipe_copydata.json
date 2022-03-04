@@ -163,6 +163,10 @@
 					},
 					"waitOnCompletion": true,
 					"parameters": {
+						"pipelineRunId": {
+							"value": "@pipeline().RunId",
+							"type": "Expression"
+						},
 						"activityName": "Teste",
 						"activityMessage": {
 							"value": "@activity('excel_to_csv').output.errors[0].Message",
@@ -180,11 +184,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"RunId": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "00 - Ativities"
 		},

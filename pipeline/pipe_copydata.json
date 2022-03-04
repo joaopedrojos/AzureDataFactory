@@ -120,7 +120,37 @@
 					{
 						"activity": "excel_to_csv",
 						"dependencyConditions": [
-							"Succeeded",
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Send notification to a channel in Microsoft Teams1",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"activityName": "Teste",
+						"activityDuration": {
+							"value": "@activity('excel_to_csv').output.executionDetails[0].duration",
+							"type": "Expression"
+						},
+						"activityStatus": {
+							"value": "@activity('excel_to_csv').output.executionDetails[0].status",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Execute Pipeline1_copy1",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "excel_to_csv",
+						"dependencyConditions": [
 							"Failed"
 						]
 					}
@@ -134,6 +164,10 @@
 					"waitOnCompletion": true,
 					"parameters": {
 						"activityName": "Teste",
+						"activityMessage": {
+							"value": "@activity('excel_to_csv').output.errors[0].Message",
+							"type": "Expression"
+						},
 						"activityDuration": {
 							"value": "@activity('excel_to_csv').output.executionDetails[0].duration",
 							"type": "Expression"

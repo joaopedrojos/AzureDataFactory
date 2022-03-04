@@ -112,6 +112,36 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "excel_to_csv",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Send notification to a channel in Microsoft Teams1",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"activityDuration": {
+							"value": "@activity('excel_to_csv').output.duration",
+							"type": "Expression"
+						},
+						"activityStatus": {
+							"value": "@activity('excel_to_csv').output.status",
+							"type": "Expression"
+						}
+					}
+				}
 			}
 		],
 		"folder": {

@@ -120,7 +120,8 @@
 					{
 						"activity": "excel_to_csv",
 						"dependencyConditions": [
-							"Succeeded"
+							"Succeeded",
+							"Failed"
 						]
 					}
 				],

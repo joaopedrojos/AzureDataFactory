@@ -132,6 +132,10 @@
 					},
 					"waitOnCompletion": true,
 					"parameters": {
+						"pipelineRunId": {
+							"value": "@pipeline().RunId",
+							"type": "Expression"
+						},
 						"activityName": "Teste",
 						"activityDuration": {
 							"value": "@activity('excel_to_csv').output.executionDetails[0].duration",

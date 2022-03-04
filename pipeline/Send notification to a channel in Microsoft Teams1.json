@@ -60,28 +60,23 @@
 				"defaultValue": "rg-udemy-course"
 			},
 			"pipelineRunId": {
-				"type": "string",
-				"defaultValue": "Overwrite the value from the calling activity "
+				"type": "string"
 			},
 			"teamsWebhookUrl": {
 				"type": "string",
 				"defaultValue": "https://joaojosue99hotmailcom.webhook.office.com/webhookb2/04ecb5d2-4ddd-4b7a-b16a-01e2665eb076@96b069b9-7a6b-4318-8b36-e771f4fad846/IncomingWebhook/6d3b02a30e844bb2a5c330f83c925407/4dd3e0e0-6b37-42ba-9a51-ef4144e93d35"
 			},
 			"activityName": {
-				"type": "string",
-				"defaultValue": "Overwrite the value from the calling activity "
+				"type": "string"
 			},
 			"activityMessage": {
-				"type": "string",
-				"defaultValue": "Overwrite the value from the calling activity "
+				"type": "string"
 			},
 			"activityDuration": {
-				"type": "string",
-				"defaultValue": "Overwrite the value from the calling activity "
+				"type": "string"
 			},
 			"activityStatus": {
-				"type": "string",
-				"defaultValue": "Failed"
+				"type": "string"
 			}
 		},
 		"variables": {

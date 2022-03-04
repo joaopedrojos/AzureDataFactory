@@ -132,6 +132,7 @@
 					},
 					"waitOnCompletion": true,
 					"parameters": {
+						"activityName": "Teste",
 						"activityDuration": {
 							"value": "@activity('excel_to_csv').output.duration",
 							"type": "Expression"

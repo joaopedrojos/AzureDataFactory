@@ -136,6 +136,10 @@
 						"activityDuration": {
 							"value": "@activity('excel_to_csv').output.executionDetails[0].duration",
 							"type": "Expression"
+						},
+						"activityStatus": {
+							"value": "@activity('excel_to_csv').output.executionDetails[0].status",
+							"type": "Expression"
 						}
 					}
 				}
